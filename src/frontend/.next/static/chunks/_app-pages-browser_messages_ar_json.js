@@ -1,0 +1,22 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([["_app-pages-browser_messages_ar_json"],{
+
+/***/ "(app-pages-browser)/./messages/ar.json":
+/*!**************************!*\
+  !*** ./messages/ar.json ***!
+  \**************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+module.exports = JSON.parse('{"About":"حول","Support":"الدعم","Other":"أخرى","Theme":"الثيم","An":"أن","Booster":"معزز","to_Your_NextJS_Apps":"لتطبيقات NextJS الخاصة بك","An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications":"نموذج قابل للتنفيذ وفعال ومتعدد الاستخدامات لبناء تطبيقات SSR.","Use_Template":"استخدم القالب","Learn_More":"اعرف المزيد!","Approachable":"سهل الوصول","Add_components_without_sending_additional_client_side_JavaScript_Built_on_the_latest_React_features":"أضف مكونات دون إرسال JavaScript إضافي على جانب العميل، مبني على أحدث ميزات React.","Automatic_Image_Font_and_Script_Optimizations_for_improved_UX_and_Core_Web_Vitals":"تحسينات تلقائية للصور والخطوط والسكريبتات لتحسين تجربة المستخدم والمقاييس الأساسية للويب.","Versatile":"متعدد الاستخدامات","A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app":"قالب غني وقابل للتطبيق للغاية يتناسب بين موقع ويب صغير للعرض وتطبيق كامل الحجم.","This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages":"هذه صفحة بسيطة حول كيفية استخدام التدويل في صفحات مختلفة","Performant":"فعّال"}');
+
+/***/ })
+
+}]);

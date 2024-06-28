@@ -1,0 +1,22 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([["_app-pages-browser_messages_es_json"],{
+
+/***/ "(app-pages-browser)/./messages/es.json":
+/*!**************************!*\
+  !*** ./messages/es.json ***!
+  \**************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+module.exports = JSON.parse('{"About":"Acerca de","Support":"Soporte","Other":"Otros","Theme":"Tema","An":"Un","Booster":"Impulsor","to_Your_NextJS_Apps":"para tus aplicaciones NextJS","An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications":"Una plantilla accesible, eficaz y versátil para construir aplicaciones SSR.","Use_Template":"Usar plantilla","Learn_More":"¡Aprende más!","Approachable":"Accesible","Add_components_without_sending_additional_client_side_JavaScript_Built_on_the_latest_React_features":"Agrega componentes sin enviar JavaScript adicional del lado del cliente. Construido sobre las últimas características de React.","Automatic_Image_Font_and_Script_Optimizations_for_improved_UX_and_Core_Web_Vitals":"Optimizaciones automáticas de imágenes, fuentes y scripts para mejorar la UX y los Core Web Vitals.","Versatile":"Versátil","A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app":"Una plantilla increíblemente rica y adaptable que escala entre un pequeño sitio web de exhibición y una aplicación de tamaño completo.","This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages":"Esta es una página simple sobre cómo mostrar cómo puedes usar la internacionalización en diferentes páginas","Performant":"Rendimiento"}');
+
+/***/ })
+
+}]);

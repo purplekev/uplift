@@ -1,19 +1,32 @@
+'use client'
 import { useTranslations } from 'next-intl'
 import Button from './components/Button'
+import React, { useState, useEffect } from 'react'
+import url from '../../../config'
 
 export default function DashboardPage() {
   const t = useTranslations('')
+  const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    fetch(url + '/api/hello')
+      .then(response => response.json())
+      .then(data => setMessage(data.message))
+      .catch(error => console.error('Error fetching the message:', error));
+  }, [])
+  console.log(url + '/api/hello')
   return (
     <div>
       <section className='flex flex-col items-center justify-center py-24'>
         <h1 className='text-center text-7xl font-extrabold leading-tight'>
           {t('An')}{' '}
           <span className='bg-span-bg bg-clip-text text-transparent'>
-            {t('Booster')}
+            {t(message)}
           </span>
           <br />
           {t('to_Your_NextJS_Apps')}
         </h1>
+        <p>{message}</p>
         <div className='my-6 px-20 text-center text-2xl text-text-secondary'>
           {t(
             'An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications'

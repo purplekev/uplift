@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/jasonzhou/Desktop/Projects/uplift/src/app/[locale]/layout\":[\"static/media/c9a5bc6a7c948fb0-s.p.woff2\",\"static/media/356abdd51b933898-s.p.woff2\",\"static/media/2d141e1a38819612-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
