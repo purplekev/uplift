@@ -33,7 +33,7 @@ type Data = {
 
 const getUserData = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        const response = await fetch(url + '/api/getUserData');
+        const response = await fetch(url + '/user/stats');
         const data = await response.json();
 
         if (!response.ok) {

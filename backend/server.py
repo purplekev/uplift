@@ -46,10 +46,11 @@ def user_level_up():
     return jsonify(response), status_code
 
 
+# assume one user
 @app.route("/user/stats", methods=["GET"])
 def user_stats():
-    user_id = request.args.get('user_id')
-    ret = user_stat(user_id)
+    print("hi")
+    ret = user_stat()
     return jsonify(ret)
 
 

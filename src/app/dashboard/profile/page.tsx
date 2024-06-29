@@ -6,6 +6,7 @@ import Loader from '@/src/app/components/TextLoader'
 import { Shiba } from "../../components/Shiba";
 import { BottomNavigation } from '../../components/BottomNavigation'
 import { useState, useEffect } from 'react';
+import url from '@/config'
 
 const pressStart2P = Press_Start_2P({
   subsets: ['latin'],
@@ -18,15 +19,18 @@ export default function DashboardPage() {
   const [username, setUsername] = useState('Faggot')
 
   useEffect(function () {
-    fetch('http://localhost:3000/api/getUserData', {})
+    fetch(url + '/user/stats', {})
       .then((resp) => resp.json())
       .then((data) => {
+        console.log('bye')
         console.log(data)
-        setUsername(data)
+        setUsername(data.username)
         console.log(username)
       })
-  }, [username])
-  
+    console.log("kms")
+  }, [])
+  console.log('hi')
+
   return (
     <div>
       <section className='flex flex-col items-center justify-center py-10'>

@@ -19,7 +19,12 @@ def create_user(username, email, password):
  
     try:
         user = pb.collection("users").create(data)
-        return {'message': f'User {data["username"]} created successfully with ID {user.id}'}, 200
+        hi = pb.collection('users').get_list()
+
+        print('sacks')
+        print(hi)
+
+        return {'user_id': user.id}, 200
     except Exception as e:
         print(f"Error creating user: {str(e)}")  # Print the error to the console for debugging
         return {'error': str(e)}, 500
@@ -29,13 +34,13 @@ def user_level_up(username, level):
     pass
 
 
-def user_stat(user_id):
-    # user = pb.collection("users").get_first_list_item(f'id={user_id}')
+def user_stat():
+    user = pb.collection("users").get_full_list()
     #
     # if not user:
     #     raise Exception
     #
-    # print(user)
+    print(user)
     #
     # user_data = user['items'][0]
 
