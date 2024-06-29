@@ -33,41 +33,28 @@ def user_level_up(username, add_xp):
         return {'error': 'User not found'}, 404
 
     user['curr_xp'] += add_xp
-        
+
     if user['curr_xp'] >= user['target_xp']:
         user['curr_xp'] -= user['target_xp']  # Reset current XP
         user['level'] += 1  # Increment level
         user['target_xp'] *= 1.5  # Increase the target XP for the next level
-        
+
         # Call the reward function if needed
         # reward_user(username, user['level'])
 
     updated_user = pb.collection("users").update(user['id'], user)
     return {'message': f'User {username} leveled up successfully to level {user["level"]}'}, 200
-    
 
 
-def get_user_stats(username):
-    user = pb.collection("users").get_first_list_item(f'username="{username}"')
-        if not user:
-            return {'error': 'User not found'}, 404
-        
-        user_id = user['id']
-        workouts = pb.collection("workouts").get_full_list(filter=f'user_id="{user_id}"')
-        
-        stats = {
-            'username': user['username'],
-            'email': user['email'],
-            'curr_xp': user['curr_xp'],
-            'target_xp': user['target_xp'],
-            'level': user['level'],
-            'workouts': []
-        }
-        for workout in workouts:
-            workout_entry = {
-                'workout_id': workout['id'],
-                'exercises': workout['exercises'],
-                'date': workout['date'],
-            }
-        stats['workouts'].append(workout_entry)
-    return jsonify(stats)
+def user_stat():
+    user = pb.collection("users").get_first_list_item('username="test1"')
+    ret = {
+        "username": user.username,
+        "email": user.email,
+        "name": user.name,
+        "curr_xp": user.curr_xp,
+        "target_xp": user.target_xp,
+        "level": user.level
+    }
+
+    return ret

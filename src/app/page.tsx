@@ -64,11 +64,11 @@ export default function DashboardPage() {
 
       <Shiba />
       <div>
-        <ProfileStats />
+        <ProfileStats username={''} />
         <div style={{ marginBottom: '20px' }}></div>
       </div>
       <div>
-        <ProfileStats />
+        <ProfileStats username={''} />
       </div>
     </div>
   )

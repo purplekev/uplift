@@ -14,10 +14,10 @@ def create_clan(username, clan_name):
     try:
         # Check if the clan name already exists
         existing_clan = pb.collection("clans").get_first_list_item(f'name="{clan_name}"')
-        
+
         if existing_clan:
             return {'error': 'Clan name already taken'}, 400
-        
+
         # Create the new clan
         new_clan = pb.collection("clans").create(data)
         return {'message': f'Clan {data["name"]} created successfully with ID {new_clan["id"]}'}, 200
@@ -52,7 +52,7 @@ def join_clan(username, clan_name):
 def clan_level_up(add_xp, clan_name):
     clan = pb.collection("clans").get_first_list_item(f'name="{clan_name}"')
     if not clan:
-      return {'error': 'Clan not found'}, 404
+        return {'error': 'Clan not found'}, 404
     
     # Calculate new XP
     new_xp = clan['xp'] + add_xp
@@ -68,6 +68,27 @@ def clan_level_up(add_xp, clan_name):
     return {'message': f'Clan {clan_name} updated successfully'}, 200
 
 
+def _clan_stats():
+    ret = pb.collection('clans').get_first_list_item('name="CSESOC"')
+    total_weight = 100
+    print(ret.name)
+    # for member in ret['members']:
+    #     total_weight += pb.collection('users').get_first_list_item(f'id={member['id']}')
 
-def clan_stats(clan_name):
+    # due to time constraints, return default values
+    default_level = 10
+    default_rewards = 24
+    ret_dic = {
+        "name": ret.name,
+        "num_members": len(ret.members),
+        "level": ret.level,
+        'weight_lifted': total_weight,
+        'curr_xp': ret.curr_xp,
+        'target_xp': ret.target_xp,
+    }
+
+    return ret_dic
+
+
+def clan_list_all():
     pass

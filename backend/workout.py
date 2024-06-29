@@ -7,13 +7,28 @@ import random
 pb = PocketBase('http://127.0.0.1:8090')
 
 
-# def start_workout(username):
-#     pass
+def _end_workout():
+    user = pb.collection("users").get_first_list_item('username="test1"')
+    curr_xp = user.curr_xp + 10
+    level = user.level
+    if curr_xp >= user.target_xp:
+        curr_xp -= user.target_xp
+        level += 1
 
+    data = {
+        "curr_xp": curr_xp,
+        "target_xp": user.target_xp,
+        "level": level
+    }
+    pb.collection('users').update(user.id, data)
 
-# def add_exercise_to_workout(workout_id, exercise):
-#     pass
-
+    ret = {
+        'curr_xp': curr_xp,
+        'target_xp': user.target_xp,
+        'level': level
+    }
+    print(ret)
+    return ret
 
 # def add_set_to_workout(workout_id, reps, weight):
 #     pass
