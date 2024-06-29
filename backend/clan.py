@@ -49,25 +49,22 @@ def join_clan(username, clan_name):
         return {'error': str(e)}, 500
 
 
-def level_up(add_xp, clan_name):
+def clan_level_up(add_xp, clan_name):
     clan = pb.collection("clans").get_first_list_item(f'name="{clan_name}"')
     if not clan:
         return {'error': 'Clan not found'}, 404
-
+    
     # Calculate new XP
     new_xp = clan['xp'] + add_xp
-
+    
     if new_xp >= clan['target_xp']:
-        # Call the reward function
-        reward_clan(clan['id'])
-
         # Update XP and target XP
         new_target_xp = clan['target_xp'] * 1.5
         pb.collection("clans").update(clan['id'], {'xp': new_xp, 'target_xp': new_target_xp})
     else:
         # Just update the XP
         pb.collection("clans").update(clan['id'], {'xp': new_xp})
-
+    
     return {'message': f'Clan {clan_name} updated successfully'}, 200
 
 
