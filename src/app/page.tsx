@@ -1,10 +1,8 @@
 'use client'
 
 import Button from './components/Button'
-import { BottomNavigation } from './components/BottomNavigation'
 import { ProfileStats } from './components/ProfileStats'
 import Loader from './components/TextLoader'
-
 import { Press_Start_2P } from 'next/font/google'
 import { Shiba } from "./components/Shiba";
 const pressStart2P = Press_Start_2P({
@@ -64,11 +62,11 @@ export default function DashboardPage() {
 
       <Shiba />
       <div>
-        <ProfileStats />
+        <ProfileStats username={''} />
         <div style={{ marginBottom: '20px' }}></div>
       </div>
       <div>
-        <ProfileStats />
+        <ProfileStats username={''} />
       </div>
     </div>
   )
