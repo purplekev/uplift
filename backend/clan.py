@@ -71,20 +71,23 @@ def level_up(add_xp, clan_name):
     return {'message': f'Clan {clan_name} updated successfully'}, 200
 
 
-def clan_stats(clan_name):
-    ret = pb.collection('clans').get_first_list_item(f'name={clan_name}')['items'][0]
-    total_weight = 0
-
-    for member in ret['members']:
-        total_weight += pb.collection('users').get_first_list_item(f'id={member['id']}')
+def _clan_stats():
+    ret = pb.collection('clans').get_first_list_item('name="CSESOC"')
+    total_weight = 100
+    print(ret.name)
+    # for member in ret['members']:
+    #     total_weight += pb.collection('users').get_first_list_item(f'id={member['id']}')
 
     # due to time constraints, return default values
     default_level = 10
     default_rewards = 24
     ret_dic = {
-        "num_members": len(ret['members']),
-        "level": ret['level'],
+        "name": ret.name,
+        "num_members": len(ret.members),
+        "level": ret.level,
         'weight_lifted': total_weight,
+        'curr_xp': ret.curr_xp,
+        'target_xp': ret.target_xp,
         'level_progress_time': default_level,
         'total_rewards': default_rewards
     }

@@ -2,8 +2,8 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 from user import create_user, user_stat
-from clan import create_clan, join_clan, leave_clan, level_up as clan_level_up, clan_stats
-from workout import start_workout, add_exercise_to_workout, save_workout_routine, add_set_to_workout
+from clan import create_clan, join_clan, leave_clan, level_up as clan_level_up, _clan_stats
+from workout import _end_workout, add_exercise_to_workout, save_workout_routine, add_set_to_workout
 
 app = Flask(__name__)
 CORS(app)
@@ -108,10 +108,9 @@ def clan_level_up():
     return jsonify(ret)
 
 
-@app.route("/clan/stats/<clan_id>", methods=["GET"])
+@app.route("/clan/stats", methods=["GET"])
 def clan_stats():
-    clan_id = request.args.get('clan_id')
-    ret = clan_stats(clan_id)
+    ret = _clan_stats()
     return jsonify(ret)
 
 
@@ -122,12 +121,9 @@ def clan_list_all():
     return jsonify(ret)
 
 
-@app.route('/workout/start', methods=['POST'])
-def start_workout():
-    data = request.get_json()
-    username = data['username']
-
-    ret = start_workout(username)
+@app.route('/workout/end', methods=['POST'])
+def end_workout():
+    ret = _end_workout()
     return jsonify(ret)
 
 
