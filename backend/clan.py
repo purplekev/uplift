@@ -88,8 +88,6 @@ def _clan_stats():
         'weight_lifted': total_weight,
         'curr_xp': ret.curr_xp,
         'target_xp': ret.target_xp,
-        'level_progress_time': default_level,
-        'total_rewards': default_rewards
     }
 
     return ret_dic

@@ -1,6 +1,8 @@
 export type clan = {
     "name": string;
-    "total_lifted_weight": number;
-    "num_clan_members": number;
-    "clan_level": number;
+    "num_members": number;
+    "level": number;
+    'weight_lifted': number;
+    'curr_xp': number;
+    'target_xp': number;
 }

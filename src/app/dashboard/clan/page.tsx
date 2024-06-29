@@ -24,28 +24,21 @@ const inter = Press_Start_2P({
 export default function DashboardPage() {
 
   const initClan: clan = {
-    "name": 'temp',
-    "total_lifted_weight": 0,
-    "num_clan_members": 0,
-    "clan_level": 0
+    "name": "hi",
+    "num_members": 0,
+    "level": 0,
+    'weight_lifted': 0,
+    'curr_xp': 0,
+    'target_xp': 0
   }
 
   const [clanData, setClanData] = useState(initClan)
-  const [clanName, setClanname] = useState('temp')
-  const [totalWeight, setTotalWeight] = useState(0)
-  const [clanMembers, setClanMembers] = useState(0)
-  const [clanLevel, setClanLevel] = useState(0)
-
 
   useEffect(function () {
     fetch(url + '/clan/stats', {})
       .then((resp) => resp.json())
       .then((data: clan) => {
         setClanData(data)
-        setClanname(data.name)
-        setTotalWeight(data.total_lifted_weight)
-        setClanMembers(data.num_clan_members)
-        setClanLevel(data.clan_level)
       })
 
   }, [])
@@ -56,15 +49,15 @@ export default function DashboardPage() {
         {/* <h1 className='text-center text-9xl font-extrabold leading-tight'> */}
 
         <span
-          className={`block text-center text-9xl font-extrabold leading-tight ${inter.className} bg-span-bg bg-clip-text text-transparent`}
+          className={`block text-center text-7xl font-extrabold leading-tight ${inter.className} bg-span-bg bg-clip-text text-transparent`}
           style={{ width: '500px', display: 'block', overflow: 'visible' }}
         >
-          {clanName}
+          {clanData.name}
         </span>
         <br />
         {/* </h1> */}
         <div className='my-6 px-20 text-center text-3xl text-text-secondary'>
-          a member of the {clanName} since 2024
+          a member of the {clanData.name} since 2024
           {/* REPLACE THESE BUTTONS WITH A MODAL TO LEAVE OR JOIN CLAN */}
         </div>
         {/* <div className='h-20'>
