@@ -11,18 +11,44 @@ import { ChatComponent } from '../../components/ClanForms/ClanChat'
 import { BombaclatChat } from '../../components/ClanForms/BombaclatChat'
 import { Press_Start_2P } from 'next/font/google'
 import { Townhall } from "../../components/Townhall";
+import url from '@/config'
+import { useState, useEffect } from 'react'
+import { init } from 'next/dist/compiled/webpack/webpack'
+import { clan } from '../../pages/types'
+
 const inter = Press_Start_2P({
   subsets: ['latin'],
   weight: '400'
 })
 
 export default function DashboardPage() {
-  const clan = {
-    "name": "clan",
-    "total_lifted_weight": "1500",
-    "num_clan_members" : "15",
-    "clan_level" : "9000"
+
+  const initClan: clan = {
+    "name": 'temp',
+    "total_lifted_weight": 0,
+    "num_clan_members": 0,
+    "clan_level": 0
   }
+
+  const [clanData, setClanData] = useState(initClan)
+  const [clanName, setClanname] = useState('temp')
+  const [totalWeight, setTotalWeight] = useState(0)
+  const [clanMembers, setClanMembers] = useState(0)
+  const [clanLevel, setClanLevel] = useState(0)
+
+
+  useEffect(function () {
+    fetch(url + '/clan/stats', {})
+      .then((resp) => resp.json())
+      .then((data: clan) => {
+        setClanData(data)
+        setClanname(data.name)
+        setTotalWeight(data.total_lifted_weight)
+        setClanMembers(data.num_clan_members)
+        setClanLevel(data.clan_level)
+      })
+
+  }, [])
 
   return (
     <div>
@@ -33,13 +59,13 @@ export default function DashboardPage() {
           className={`block text-center text-9xl font-extrabold leading-tight ${inter.className} bg-span-bg bg-clip-text text-transparent`}
           style={{ width: '500px', display: 'block', overflow: 'visible' }}
         >
-          {clan.name}
+          {clanName}
         </span>
-          <br />
+        <br />
         {/* </h1> */}
         <div className='my-6 px-20 text-center text-3xl text-text-secondary'>
-          a member of the {clan.name} since 2024
-        {/* REPLACE THESE BUTTONS WITH A MODAL TO LEAVE OR JOIN CLAN */}
+          a member of the {clanName} since 2024
+          {/* REPLACE THESE BUTTONS WITH A MODAL TO LEAVE OR JOIN CLAN */}
         </div>
         {/* <div className='h-20'>
           <Loader texts={fuckwit}/>
@@ -61,11 +87,11 @@ export default function DashboardPage() {
           </a>
         </div> */}
         <div className='flex'>
-          <CreateClanForm/>
+          <CreateClanForm />
           <Button className='bg-green-600 ml-10 mr-10'>Join Clan</Button>
           {/* <Dropdown className='bg-green-600 ml-10'/> */}
           {/* <Button className='bg-red-500 ml-10'>Leave Clan</Button> */}
-          <BombaclatChat/>
+          <BombaclatChat />
         </div>
       </section>
       {/* <section className='bg-background-secondary py-8 max-lg:py-10'>
@@ -83,18 +109,18 @@ export default function DashboardPage() {
       </section> */}
 
 
-    
+
 
       <Townhall />
       <div>
-        <ProfileStatsClan />
+        <ProfileStatsClan clan={clanData} />
         <div style={{ marginBottom: '50px' }}></div>
       </div>
       <div>
         {/* <ProfileStatsClan/> */}
         {/* <ChatComponent/> */}
       </div>
-      <BottomNavigation/>
+      <BottomNavigation />
     </div>
   )
 }
