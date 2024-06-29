@@ -2,9 +2,9 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 from user import create_user
-from clan import create_clan, join_clan, leave_clan, level_up as clan_level_up, clan_stats
-from user import user_stats
-from workout import start_workout, add_exercise_to_workout, save_workout_routine, add_set_to_workout
+from clan import create_clan, join_clan, leave_clan, clan_level_up as clan_level_up, clan_stats
+from user import get_user_stats
+from workout import end_workout
 
 app = Flask(__name__)
 CORS(app)

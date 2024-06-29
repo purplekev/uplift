@@ -49,25 +49,25 @@ def user_level_up(username, add_xp):
 
 def get_user_stats(username):
     user = pb.collection("users").get_first_list_item(f'username="{username}"')
-        if not user:
-            return {'error': 'User not found'}, 404
+    if not user:
+        return {'error': 'User not found'}, 404
         
-        user_id = user['id']
-        workouts = pb.collection("workouts").get_full_list(filter=f'user_id="{user_id}"')
-        
-        stats = {
-            'username': user['username'],
-            'email': user['email'],
-            'curr_xp': user['curr_xp'],
-            'target_xp': user['target_xp'],
-            'level': user['level'],
-            'workouts': []
+    user_id = user['id']
+    workouts = pb.collection("workouts").get_full_list(filter=f'user_id="{user_id}"')
+    
+    stats = {
+        'username': user['username'],
+        'email': user['email'],
+        'curr_xp': user['curr_xp'],
+        'target_xp': user['target_xp'],
+        'level': user['level'],
+        'workouts': []
+    }
+    for workout in workouts:
+        workout_entry = {
+            'workout_id': workout['id'],
+            'exercises': workout['exercises'],
+            'date': workout['date'],
         }
-        for workout in workouts:
-            workout_entry = {
-                'workout_id': workout['id'],
-                'exercises': workout['exercises'],
-                'date': workout['date'],
-            }
-        stats['workouts'].append(workout_entry)
+    stats['workouts'].append(workout_entry)
     return jsonify(stats)
