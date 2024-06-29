@@ -2,8 +2,8 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 from user import create_user, user_stat
-from clan import create_clan, join_clan, leave_clan, level_up as clan_level_up, _clan_stats
-from workout import _end_workout, add_exercise_to_workout, save_workout_routine, add_set_to_workout
+from clan import create_clan, join_clan, leave_clan as clan_level_up, _clan_stats
+from workout import _end_workout
 
 app = Flask(__name__)
 CORS(app)
@@ -121,7 +121,7 @@ def clan_list_all():
     return jsonify(ret)
 
 
-@app.route('/workout/end', methods=['POST'])
+@app.route('/workout/end', methods=['GET'])
 def end_workout():
     ret = _end_workout()
     return jsonify(ret)
@@ -135,13 +135,13 @@ def add_exercise_to_workout():
     ret = add_exercise_to_workout(workout_id, exercise)
     return jsonify(ret)
 
-@app.route('/workout/end', methods=['POST'])
-def end_workout_route():
-    data = request.get_json()
-    username = data['username']
-    exercises = data['exercises']
-    ret = end_workout(username, exercises)
-    return jsonify(ret)
+# @app.route('/workout/end', methods=['POST'])
+# def end_workout_route():
+#     data = request.get_json()
+#     username = data['username']
+#     exercises = data['exercises']
+#     ret = end_workout(username, exercises)
+#     return jsonify(ret)
 
 # @app.route('/workout/save_workout_routine', methods=['POST'])
 # def add_exercise_to_workout():
@@ -163,11 +163,11 @@ def end_workout_route():
 #     return jsonify(ret)
 
 
-@app.route("/api/user_stats", methods=["GET"])
-def user_stats_route():
-    username = request.args.get('username')
-    response, status_code = get_user_stats(username)
-    return jsonify(response)
+# @app.route("/api/user_stats", methods=["GET"])
+# def user_stats_route():
+#     username = request.args.get('username')
+#     response, status_code = get_user_stats(username)
+#     return jsonify(response)
 
 if __name__ == "__main__":
     app.run(debug=True)

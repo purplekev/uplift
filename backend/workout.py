@@ -8,7 +8,7 @@ pb = PocketBase('http://127.0.0.1:8090')
 
 
 def _end_workout():
-    user = pb.collection("users").get_first_list_item('username="asghjklzxcvbnm"')
+    user = pb.collection("users").get_first_list_item('username="test1"')
     curr_xp = user.curr_xp + 10
     level = user.level
     if curr_xp >= user.target_xp:
@@ -16,15 +16,8 @@ def _end_workout():
         level += 1
 
     data = {
-        "username": user.username,
-        "emailVisibility": user.emailVisibility,
-        "password": user.password,
-        "passwordConfirm": user.password,
-        "oldPassword": user.password,
-        "name": user.name,
         "curr_xp": curr_xp,
         "target_xp": user.target_xp,
-        "weight_lifted": user.weight_lifted,
         "level": level
     }
     pb.collection('users').update(user.id, data)
@@ -34,6 +27,7 @@ def _end_workout():
         'target_xp': user.target_xp,
         'level': level
     }
+    print(ret)
     return ret
 
 # def add_set_to_workout(workout_id, reps, weight):

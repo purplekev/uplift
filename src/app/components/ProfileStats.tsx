@@ -5,11 +5,10 @@ const inter = Press_Start_2P({
     weight: '400'
 })
 
-type ProfileStatsProps = {
-    username: string;
-};
+import { User } from '@/src/app/pages/types'
 
-export const ProfileStats:FC<ProfileStatsProps> = ({ username }) => {
+
+export const ProfileStats = ({ user }: {user: User}) => {
     return (
         <>
             <div className="flex justify-center mb-6">
@@ -49,7 +48,7 @@ export const ProfileStats:FC<ProfileStatsProps> = ({ username }) => {
                                     {/* <img src="monkey.jpg" alt="monkey coding" className="w-35 h-35 rounded-full" /> */}
                                     <div>
                                         <div className="mt-2 flex justify-center gap-4">
-                                            <h3 className="text-5xl font-bold -700">{username}</h3>
+                                            <h3 className="text-5xl font-bold -700">{user.username}</h3>
                                             <div className="flex items-end gap-1 text-green-500">
                                                 {/* <svg className="w-3" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M6.00001 0L12 8H-3.05176e-05L6.00001 0Z" fill="currentColor"/>
@@ -57,13 +56,13 @@ export const ProfileStats:FC<ProfileStatsProps> = ({ username }) => {
                                                 {/* <span>2%</span> */}
                                             </div>
                                         </div>
-                                        <span className={`block text-center -500 text-center text-md font-extrabold leading-tight ${inter.className} bg-span-bg bg-clip-text text-transparent pt-4 pb-4`}>a member of insertclan</span>
+                                        <span className={`block text-center -500 text-center text-md font-extrabold leading-tight ${inter.className} bg-span-bg bg-clip-text text-transparent pt-4 pb-4`}>Level {user.level}</span>
                                     </div>
                                     <table className="w-full -600">
                                         <tbody>
                                             <tr>
-                                                <td className="py-2">Tailored ui</td>
-                                                <td className="-500">896</td>
+                                                <td className="py-2">Current XP</td>
+                                                <td className="-500">{user.curr_xp}</td>
                                                 <td>
                                                     <svg className="w-16 ml-auto" viewBox="0 0 68 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <rect opacity="0.4" width="17" height="21" rx="1" fill="#e4e4f2" />
@@ -81,8 +80,8 @@ export const ProfileStats:FC<ProfileStatsProps> = ({ username }) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="py-2">Customize</td>
-                                                <td className="-500">1200</td>
+                                                <td className="py-2">Target XP</td>
+                                                <td className="-500">{user.target_xp}</td>
                                                 <td>
                                                     <svg className="w-16 ml-auto" viewBox="0 0 68 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <rect opacity="0.4" width="17" height="21" rx="1" fill="#e4e4f2" />
@@ -99,25 +98,25 @@ export const ProfileStats:FC<ProfileStatsProps> = ({ username }) => {
                                                     </svg>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td className="py-2">Other</td>
-                                                <td className="-500">12</td>
-                                                <td>
-                                                    <svg className="w-16 ml-auto" viewBox="0 0 68 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <rect opacity="0.4" width="17" height="21" rx="1" fill="#e4e4f2" />
-                                                        <rect opacity="0.4" x="19" width="14" height="21" rx="1" fill="#e4e4f2" />
-                                                        <rect opacity="0.4" x="35" width="14" height="21" rx="1" fill="#e4e4f2" />
-                                                        <rect opacity="0.4" x="51" width="17" height="21" rx="1" fill="#e4e4f2" />
-                                                        <path d="M0 6C8.62687 6 6.85075 12.75 17 12.75C27.1493 12.75 25.3731 9 34 9C42.6269 9 42.262 13.875 49 13.875C55.5398 13.875 58.3731 6 67 6" stroke="url(#paint0_linear_622:13649)" stroke-width="2" stroke-linejoin="round" />
-                                                        <defs>
-                                                            <linearGradient id="paint0_linear_622:13649" x1="67" y1="7.96873" x2="1.67368" y2="8.44377" gradientUnits="userSpaceOnUse">
-                                                                <stop stop-color="#FFD422" />
-                                                                <stop offset="1" stop-color="#FF7D05" />
-                                                            </linearGradient>
-                                                        </defs>
-                                                    </svg>
-                                                </td>
-                                            </tr>
+                                            {/*<tr>*/}
+                                            {/*    <td className="py-2">Other</td>*/}
+                                            {/*    <td className="-500">12</td>*/}
+                                            {/*    <td>*/}
+                                            {/*        <svg className="w-16 ml-auto" viewBox="0 0 68 21" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
+                                            {/*            <rect opacity="0.4" width="17" height="21" rx="1" fill="#e4e4f2" />*/}
+                                            {/*            <rect opacity="0.4" x="19" width="14" height="21" rx="1" fill="#e4e4f2" />*/}
+                                            {/*            <rect opacity="0.4" x="35" width="14" height="21" rx="1" fill="#e4e4f2" />*/}
+                                            {/*            <rect opacity="0.4" x="51" width="17" height="21" rx="1" fill="#e4e4f2" />*/}
+                                            {/*            <path d="M0 6C8.62687 6 6.85075 12.75 17 12.75C27.1493 12.75 25.3731 9 34 9C42.6269 9 42.262 13.875 49 13.875C55.5398 13.875 58.3731 6 67 6" stroke="url(#paint0_linear_622:13649)" stroke-width="2" stroke-linejoin="round" />*/}
+                                            {/*            <defs>*/}
+                                            {/*                <linearGradient id="paint0_linear_622:13649" x1="67" y1="7.96873" x2="1.67368" y2="8.44377" gradientUnits="userSpaceOnUse">*/}
+                                            {/*                    <stop stop-color="#FFD422" />*/}
+                                            {/*                    <stop offset="1" stop-color="#FF7D05" />*/}
+                                            {/*                </linearGradient>*/}
+                                            {/*            </defs>*/}
+                                            {/*        </svg>*/}
+                                            {/*    </td>*/}
+                                            {/*</tr>*/}
                                         </tbody>
                                     </table>
                                 </div>

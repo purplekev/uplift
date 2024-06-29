@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Press_Start_2P } from 'next/font/google'
-import { clan } from '../../pages/types';
+import { Clan } from '../../pages/types';
 
 const inter = Press_Start_2P({
     subsets: ['latin'],
@@ -25,7 +25,7 @@ const inter = Press_Start_2P({
 
 
 
-export const ProfileStatsClan = ({ clan }: {clan: clan}) => {
+export const ProfileStatsClan = ({ clan }: {clan: Clan}) => {
     return (
         <>
             <div className="flex justify-center mb-6">
@@ -62,7 +62,7 @@ export const ProfileStatsClan = ({ clan }: {clan: clan}) => {
                                             </linearGradient>
                                         </defs>
                                     </svg>
-                                    <tr className="h-10"></tr>
+                                    <div className="h-10"></div>
                                     <table className="mt-6 -mb-2 w-full -600">
                                         <tbody>
                                         <tr>

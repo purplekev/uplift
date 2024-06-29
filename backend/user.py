@@ -48,4 +48,13 @@ def user_level_up(username, add_xp):
 
 def user_stat():
     user = pb.collection("users").get_first_list_item('username="test1"')
-    return {'username': user.username}
+    ret = {
+        "username": user.username,
+        "email": user.email,
+        "name": user.name,
+        "curr_xp": user.curr_xp,
+        "target_xp": user.target_xp,
+        "level": user.level
+    }
+
+    return ret

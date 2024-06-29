@@ -1,10 +1,13 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { randInt } from 'three/src/math/MathUtils.js';
 import { BottomNavigation } from '../../components/BottomNavigation';
 import { Press_Start_2P } from 'next/font/google'
 import { Progressbar } from '../../components/Progressbar'
+import { EXP } from '@/src/app/pages/types'
+import url from '@/config'
+
 const pressStart2P = Press_Start_2P({
   subsets: ['latin'],
   weight: '400'
@@ -25,15 +28,34 @@ const workoutsData: Workout[] = [
     // Add more workouts as needed
 ];
 
+const initEXP: EXP = {
+  'curr_xp': 0,
+  'target_xp': 1,
+  'level': 0,
+}
+
 export default function WorkoutSelectionPage() {
     const [selectedWorkout, setSelectedWorkout] = useState<Workout | null>(null);
+    const [workoutEXP, setWorkoutEXP] = useState(initEXP)
 
-    let fuckme = randInt(0, 100)
     const handleStartWorkout = (workout: Workout) => {
         // Implement logic to start the selected workout
         console.log(`Starting workout: ${workout.name}`);
         setSelectedWorkout(workout); // For demonstration, set the selected workout
     };
+
+    const handleEndWorkout = () => {
+      fetch(url + '/workout/end', {})
+        .then((resp) => resp.json())
+        .then((data: EXP) => {
+          setWorkoutEXP(data)
+        })
+    }
+
+  useEffect(function () {
+    handleEndWorkout()
+
+  }, [])
 
     return (
         <div>
@@ -78,16 +100,16 @@ export default function WorkoutSelectionPage() {
                 )}
                 <div className="text-center">
                     <button
-                        // onClick={() => handleStartWorkout(workout)}
+                        onClick={() => handleEndWorkout()}
                         className="text-center bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-md transition duration-300 mt-10 text-lg"
                     >
                         End Workout
                     </button>
                     <h1 className={`pt-12 text-center text-2xl font-extrabold leading-tight pt-4 pb-8 pl-6 pr-6 ${pressStart2P.className} bg-span-bg bg-clip-text text-white bg-black`}>
-                        Current Level: 10
+                        Current Level: {workoutEXP.level}
                      </h1>
                 </div>
-                <Progressbar/>
+                <Progressbar experience={workoutEXP}/>
             </div>
             <BottomNavigation/>
         </div>

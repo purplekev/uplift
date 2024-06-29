@@ -40,7 +40,7 @@ export const Initiatives = () => {
             {/* Semi-transparent background with backdrop-filter */}
             <div className="absolute inset-0 bg-black-800 opacity-75 backdrop-filter backdrop-blur-lg"></div>
             <div className="relative bg-white rounded-lg max-w-md w-full p-8">
-                <img src='/pushup.jpeg'/>
+                <img src='/pushup.png'/>
                 <div className='text-center mt-3 text-orange-900'>
                     <a href="https://www.thepushupchallenge.com.au/?utm_campaign=pushforbetter&gad_source=1&gclid=CjwKCAjw4f6zBhBVEiwATEHFVnBMpjYVejJtfwSPdkenA6LF8CMpXJbhFfj_dyLu8tJfeHrewKr-oBoCWRoQAvD_BwE" target="blank">
                         Sign up with your clan!

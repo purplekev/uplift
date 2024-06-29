@@ -46,4 +46,19 @@ const getUserData = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 };
 
-export { signup, getUserData };
+const getXPData = async (req: NextApiRequest, res: NextApiResponse) => {
+    try {
+        const response = await fetch(url + '/workout/end');
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Failed to fetch XP data');
+        }
+
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ error: (error as Error).message });
+    }
+};
+
+export { signup, getUserData, getXPData };

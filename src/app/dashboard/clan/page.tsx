@@ -14,7 +14,7 @@ import { Townhall } from "../../components/Townhall";
 import url from '@/config'
 import { useState, useEffect } from 'react'
 import { init } from 'next/dist/compiled/webpack/webpack'
-import { clan } from '../../pages/types'
+import { Clan } from '../../pages/types'
 
 const inter = Press_Start_2P({
   subsets: ['latin'],
@@ -23,7 +23,7 @@ const inter = Press_Start_2P({
 
 export default function DashboardPage() {
 
-  const initClan: clan = {
+  const initClan: Clan = {
     "name": "hi",
     "num_members": 0,
     "level": 0,
@@ -37,7 +37,7 @@ export default function DashboardPage() {
   useEffect(function () {
     fetch(url + '/clan/stats', {})
       .then((resp) => resp.json())
-      .then((data: clan) => {
+      .then((data: Clan) => {
         setClanData(data)
       })
 
