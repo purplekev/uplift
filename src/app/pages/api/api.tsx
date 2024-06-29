@@ -1,10 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import url from '@/config'
 
 const signup = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'POST') {
         const { username, email, password } = req.body;
         try {
-            const response = await fetch('http://localhost:5000/api/create_user', {
+            const response = await fetch(url + '/api/create_user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,4 +27,23 @@ const signup = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 };
 
-export default signup;
+type Data = {
+    username: string;
+};
+
+const getUserData = async (req: NextApiRequest, res: NextApiResponse) => {
+    try {
+        const response = await fetch(url + '/api/getUserData');
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Failed to fetch user data');
+        }
+
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ error: (error as Error).message });
+    }
+};
+
+export { signup, getUserData };
