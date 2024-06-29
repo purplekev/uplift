@@ -37,7 +37,7 @@ def create_user_route():
     return jsonify(response), status_code
 
 
-@app.route("/api/user_level_up", methods=["POST"])
+@app.route("/user/level_up", methods=["POST"])
 def user_level_up():
     data = request.get_json()
     username = data["email"]
@@ -47,7 +47,7 @@ def user_level_up():
     return jsonify(response), status_code
 
 
-@app.route("/api/user_stats", methods=["GET"])
+@app.route("/user/stats", methods=["GET"])
 def user_stats():
     username = request.args.get('username')
     ret = user_stats(username)
