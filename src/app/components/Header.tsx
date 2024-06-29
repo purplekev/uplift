@@ -4,6 +4,8 @@ import { FC } from 'react'
 import GithubIcon from '../icons/github'
 import LogoIcon from '../icons/logo'
 import ThemeSwitch from './ThemeSwitch'
+import Button from '../components/Button'
+import { Initiatives } from '../components/Initiatives'
 interface Props {
   locale: string
 }
@@ -19,13 +21,15 @@ export const Header: FC<Props> = ({ locale }) => {
         </div>
       </Link>
       <div className='flex flex-row items-center gap-3'>
-        <nav className='mr-2 inline-flex gap-5'>
+        {/* <nav className='mr-2 inline-flex gap-5'>
           <Link href={`/about`}>
             About
           </Link>
           <a href=''>Support</a>
           <a href=''>Other</a>
-        </nav>
+        </nav> */}
+        {/* <Button className='bg-yellow-700 ml-10 mr-5'>Inititives</Button> */}
+        <Initiatives/>
         <ThemeSwitch />
         <a
           href='https://github.com/yahyaparvar/nextjs-template'

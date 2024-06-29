@@ -37,7 +37,7 @@ def create_user_route():
     return jsonify(response), status_code
 
 
-@app.route("/api/user_level_up", methods=["POST"])
+@app.route("/user/level_up", methods=["POST"])
 def user_level_up():
     data = request.get_json()
     username = data["email"]
@@ -47,10 +47,11 @@ def user_level_up():
     return jsonify(response), status_code
 
 
-@app.route("/api/user_stats", methods=["GET"])
+# assume one user
+@app.route("/user/stats", methods=["GET"])
 def user_stats():
-    username = request.args.get('username')
-    ret = user_stats(username)
+    print("hi")
+    ret = get_user_stat()
     return jsonify(ret)
 
 
@@ -108,19 +109,18 @@ def clan_level_up():
     return jsonify(ret)
 
 
-@app.route("/clan/stats", methods=["GET"])
+@app.route("/clan/stats/<clan_id>", methods=["GET"])
 def clan_stats():
-    clan_name = request.args.get('clan_name')
-    ret = clan_stats(clan_name)
+    clan_id = request.args.get('clan_id')
+    ret = clan_stats(clan_id)
     return jsonify(ret)
 
 
 @app.route("/clan/list_all", methods=["GET"])
 def clan_list_all():
-    pass
-    # clan_name = request.args.get('clan_name')
-    # ret = clan_stats(clan_name)
-    # return jsonify(ret)
+    clan_name = request.args.get('clan_name')
+    ret = clan_list_all(clan_name)
+    return jsonify(ret)
 
 
 @app.route('/workout/start', methods=['POST'])
