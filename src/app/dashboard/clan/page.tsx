@@ -17,7 +17,6 @@ const inter = Press_Start_2P({
 })
 
 export default function DashboardPage() {
-  const fuckwit = ["fuck ur mum"]
   const clan = {
     "name": "clan",
     "total_lifted_weight": "1500",

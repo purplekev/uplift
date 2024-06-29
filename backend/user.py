@@ -35,15 +35,5 @@ def user_level_up(username, level):
 
 
 def user_stat():
-    user = pb.collection("users").get_full_list()
-    #
-    # if not user:
-    #     raise Exception
-    #
-    print(user)
-    #
-    # user_data = user['items'][0]
-
-    # return user_data
-
-    return {'username': "hi"}
+    user = pb.collection("users").get_list()
+    return {'username': user.items[0].username}

@@ -16,20 +16,17 @@ const pressStart2P = Press_Start_2P({
 
 export default function DashboardPage() {
   const texts = ["Clash of GYMS", "Gym together", "Fitness"];
-  const [username, setUsername] = useState('Faggot')
+  const [username, setUsername] = useState('temp')
 
   useEffect(function () {
     fetch(url + '/user/stats', {})
       .then((resp) => resp.json())
       .then((data) => {
-        console.log('bye')
-        console.log(data)
         setUsername(data.username)
-        console.log(username)
       })
-    console.log("kms")
+
   }, [])
-  console.log('hi')
+
 
   return (
     <div>
