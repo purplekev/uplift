@@ -140,6 +140,13 @@ def add_exercise_to_workout():
     ret = add_exercise_to_workout(workout_id, exercise)
     return jsonify(ret)
 
+@app.route('/workout/end', methods=['POST'])
+def end_workout_route():
+    data = request.get_json()
+    username = data['username']
+    exercises = data['exercises']
+    ret = end_workout(username, exercises)
+    return jsonify(ret)
 
 # @app.route('/workout/save_workout_routine', methods=['POST'])
 # def add_exercise_to_workout():
@@ -160,6 +167,12 @@ def add_exercise_to_workout():
 #     ret = add_set_to_workout(workout_id, exercise_set, weight)
 #     return jsonify(ret)
 
+
+@app.route("/api/user_stats", methods=["GET"])
+def user_stats_route():
+    username = request.args.get('username')
+    response, status_code = get_user_stats(username)
+    return jsonify(response)
 
 if __name__ == "__main__":
     app.run(debug=True)
