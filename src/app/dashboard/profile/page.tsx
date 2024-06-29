@@ -19,7 +19,7 @@ export default function DashboardPage() {
   const [username, setUsername] = useState('temp')
 
   useEffect(function () {
-    fetch(url + '/user/stats', {})
+    fetch(url + '/user_stats', {})
       .then((resp) => resp.json())
       .then((data) => {
         setUsername(data.username)

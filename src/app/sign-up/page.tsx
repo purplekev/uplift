@@ -4,7 +4,7 @@ import { Press_Start_2P } from 'next/font/google'
 import { FormEvent, useState } from 'react';
 import url from "@/config";
 import Link from 'next/link'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const pressStart2P = Press_Start_2P({
     subsets: ['latin'],
