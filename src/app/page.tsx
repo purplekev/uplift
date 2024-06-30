@@ -6,6 +6,7 @@ import { ProfileStats } from './components/ProfileStats'
 import Loader from './components/TextLoader'
 import { Press_Start_2P } from 'next/font/google'
 import { Shiba } from "./components/Shiba";
+import { User } from '@/src/app/pages/types'
 
 const pressStart2P = Press_Start_2P({
   subsets: ['latin'],
@@ -13,7 +14,7 @@ const pressStart2P = Press_Start_2P({
 })
 
 export default function DashboardPage() {
-  const fuckwit = ["fuck ur mum"]
+  const message = ["uplift"]
 
   return (
     <div>
@@ -30,7 +31,7 @@ export default function DashboardPage() {
 
         </div>
         <div className='h-20'>
-          <Loader texts={fuckwit} />
+          <Loader texts={message} />
         </div>
         <div className='mt-4 flex flex-row gap-4'>
 
@@ -38,13 +39,8 @@ export default function DashboardPage() {
             href='/login'
           >
             <Button rounded size='large'>
-              Sign up!
+              Sign in!
             </Button>
-          </a>
-          <a
-            href='https://github.com/yahyaparvar/nextjs-template'
-            target='_blank'
-          >
           </a>
         </div>
       </section>
@@ -61,15 +57,6 @@ export default function DashboardPage() {
           </div>
         </div>
       </section>
-
-      <Shiba />
-      <div>
-        <ProfileStats username={''} />
-        <div style={{ marginBottom: '20px' }}></div>
-      </div>
-      <div>
-        <ProfileStats username={''} />
-      </div>
     </div>
   )
 }
