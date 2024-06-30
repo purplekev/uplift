@@ -14,7 +14,7 @@ const pressStart2P = Press_Start_2P({
 })
 
 export default function DashboardPage() {
-  const message = ["uplift"]
+  const message = ["upLift"]
 
   return (
     <div>
@@ -22,7 +22,7 @@ export default function DashboardPage() {
         <h1 className='text-center text-9xl font-extrabold leading-tight'>
 
           <span className={`text-center text-9xl font-extrabold leading-tight ${pressStart2P.className} bg-span-bg bg-clip-text text-transparent`}>
-            uplift
+            upLift
           </span>
           <br />
         </h1>

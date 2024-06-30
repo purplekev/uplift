@@ -26,7 +26,7 @@ const base_user: User = {
 
 export default function DashboardPage() {
 
-  const texts = ["uplift"];
+  const texts = ["upLift"];
   const [ret_user, setUser] = useState(base_user)
 
   useEffect(function () {

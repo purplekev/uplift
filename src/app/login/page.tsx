@@ -10,8 +10,7 @@ export default function LoginPage() {
     return (
         <section className="text-center">
                 <span className={`text-center text-7xl font-extrabold leading-tight ${pressStart2P.className} bg-span-bg bg-clip-text text-transparent bg-black pt-15`}>
-                    Welcome to
-                    uplift
+                    Welcome to upLift
                 </span>
             <div className="flex flex-col items-center justify-center pt-10">
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
