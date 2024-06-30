@@ -32,7 +32,7 @@ export const Header: FC<Props> = ({ locale }) => {
         <Initiatives/>
         <ThemeSwitch />
         <a
-          href='https://github.com/yahyaparvar/nextjs-template'
+          href='https://github.com/purplekev/uplift'
           target='_blank'
         >
           <div className='ml-1 size-8'>
