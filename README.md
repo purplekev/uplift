@@ -2,35 +2,32 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+To connect to the backend, please install the following Python dependencies.
+```bash
+pip install Flask
+# and 
+pip install -U flask-cors
+```
+Then, head to the root directory and run ``source venv/bin/activate``.
 
+We need to set-up a pocketbase for the backend and database.
+
+Please install the [pocketbase](https://pocketbase.io/docs/) according to your system's architecture and replace the current file in ``uplift/backend/database``.
+
+To manage the database, please run ``./pocketbase serve``
+
+Finally, run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+And you're all set! Open [http://localhost:3000](http://localhost:3000) with your browser and enjoy the application. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Please note that our app is best suited with the viewport of 800px × 1200px but in the future, we will implement full responsiveness. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## More information
 
-## Learn More
+For more, in-depth information about this project, please see click [here!](https://devpost.com/software/uplift-bi4quj?ref_content=user-portfolio&ref_feature=in_progress)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
